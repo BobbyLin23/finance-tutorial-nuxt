@@ -2,8 +2,9 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 
 ## Tech Stack
 - Nuxt.js
+- Bun
 - Tailwind CSS
-- Shadcn UI
+- Shadcn Vue
 - Clerk
 - Drizzle ORM
 - Hono.js
