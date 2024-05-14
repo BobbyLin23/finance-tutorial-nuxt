@@ -10,7 +10,7 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 - Hono.js
 
 ## Todo
-- [ ] Create the project, add Shadcn UI
+- [x] Create the project, add Shadcn UI
 - [ ] Add Clerk to the project
 - [ ] Hono.js Setup
 - [ ] Header Component
