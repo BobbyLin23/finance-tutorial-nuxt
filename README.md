@@ -11,7 +11,7 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 
 ## Todo
 - [x] Create the project, add Shadcn UI
-- [ ] Add Clerk to the project
+- [x] Add Clerk to the project
 - [ ] Hono.js Setup
 - [ ] Header Component
 - [ ] DB Setup with Drizzle ORM
