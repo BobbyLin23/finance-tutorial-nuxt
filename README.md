@@ -7,9 +7,11 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 - Shadcn Vue
 - Clerk
 - Drizzle ORM
+- Vue Use
 
 ## Todo
 - [x] Create the project, add Shadcn UI
 - [x] Add Clerk to the project
-- [ ] Header Component
-- [ ] DB Setup with Drizzle ORM
+- [x] Header Component
+- [x] DB Setup with Drizzle ORM
+- [ ] Accounts API with UI
