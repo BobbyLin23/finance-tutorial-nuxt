@@ -6,6 +6,7 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 - Tailwind CSS
 - Shadcn Vue
 - Clerk
+- Vue Clerk
 - Drizzle ORM
 - Vue Use
 
@@ -14,4 +15,12 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 - [x] Add Clerk to the project
 - [x] Header Component
 - [x] DB Setup with Drizzle ORM
-- [ ] Accounts API with UI
+- [x] Accounts API with UI
+  - [x] Get
+  - [x] Post
+- [ ] Data Table
+- [ ] Accounts bulk Delete
+- [ ] Accounts Edit
+
+## Issues
+- [ ] How to use rpc in Nuxt.js?

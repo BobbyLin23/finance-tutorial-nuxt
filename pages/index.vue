@@ -2,10 +2,18 @@
 definePageMeta({
   middleware: ['auth'],
 })
+
+const newAccountStore = useNewAccountStore()
+
+function handleClick() {
+  newAccountStore.onOpen()
+}
 </script>
 
 <template>
   <div>
-    <Button>Click</Button>
+    <Button @click="handleClick">
+      Click
+    </Button>
   </div>
 </template>
