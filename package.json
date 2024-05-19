@@ -21,6 +21,7 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "@pinia/nuxt": "^0.5.1",
     "@tanstack/vue-query": "^5.36.1",
+    "@tanstack/vue-table": "^8.17.3",
     "@vee-validate/zod": "^4.12.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
