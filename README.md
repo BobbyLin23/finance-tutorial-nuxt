@@ -1,5 +1,7 @@
 Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 
+This is Nuxt.js version of `Finance Tutorial` repository.
+
 ## Tech Stack
 - Nuxt.js
 - Bun
@@ -21,6 +23,8 @@ Thanks to [Code with Antonio](https://www.codewithantonio.com) for the content.
 - [ ] Data Table
 - [ ] Accounts bulk Delete
 - [ ] Accounts Edit
+- [ ] Categories API + UI
+- [ ] Transactions API
 
 ## Issues
 - [ ] How to use rpc in Nuxt.js?
