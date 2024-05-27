@@ -45,7 +45,7 @@ function onclick(href: string) {
     />
   </nav>
   <Sheet v-if="isMobile">
-    <SheetTrigger>
+    <SheetTrigger :open="isOpen">
       <Button
         variant="outline"
         size="sm"
@@ -61,7 +61,10 @@ function onclick(href: string) {
           v-for="route in routes"
           :key="route.href"
           :variant="route.href === $route.path ? 'secondary' : 'ghost'"
-          @click="() => onclick(route.href)"
+          @click="() => {
+            onclick(route.href)
+            isOpen = false
+          }"
         >
           {{ route.label }}
         </Button>

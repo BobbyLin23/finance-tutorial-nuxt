@@ -1,31 +1,32 @@
 <script lang="ts" setup>
 import { Trash } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
-import type { z } from 'zod'
+import { toTypedSchema } from '@vee-validate/zod'
 
 import { insertAccountSchema } from '~/server/db/schema'
 
 interface Props {
   id?: string
-  defaultValue?: FormValues
-  onSubmit: (values: FormValues) => void
+  defaultValue?: any
+  onSubmit: (values: any) => void
   onDelete?: () => void
-  disabled: Ref<true> | Ref<false>
+  disabled: boolean
 }
 
 const props = defineProps<Props>()
 
-const formSchema = insertAccountSchema.pick({
-  name: true,
-})
+const formSchema = toTypedSchema(
+  insertAccountSchema.pick({
+    name: true,
+  }),
+)
 
-type FormValues = z.input<typeof formSchema>
-
-const form = useForm<FormValues>({
+const form = useForm({
   validationSchema: formSchema,
+  initialValues: props.defaultValue,
 })
 
-const onSubmit = form.handleSubmit((values: FormValues) => {
+const onSubmit = form.handleSubmit((values) => {
   props.onSubmit(values)
 })
 
@@ -52,6 +53,7 @@ function handleDelete() {
       {{ id ? 'Save changes' : 'Create account' }}
     </Button>
     <Button
+      v-if="props.id"
       type="button"
       :disabled="disabled"
       class="w-full"

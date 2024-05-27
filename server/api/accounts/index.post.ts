@@ -1,5 +1,6 @@
 import { createId } from '@paralleldrive/cuid2'
 import { getAuth } from 'h3-clerk'
+
 import { accounts } from '~/server/db/schema'
 
 export default defineEventHandler(async (event) => {

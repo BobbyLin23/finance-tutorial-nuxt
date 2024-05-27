@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="TData, TValue">
-import type { ColumnDef, ColumnFiltersState, SortingState } from '@tanstack/vue-table'
+import type { ColumnDef, ColumnFiltersState, Row, SortingState } from '@tanstack/vue-table'
 import {
   FlexRender,
   getCoreRowModel,
@@ -8,6 +8,7 @@ import {
   getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table'
+import { Trash } from 'lucide-vue-next'
 
 import {
   Table,
@@ -22,7 +23,12 @@ import { valueUpdater } from '~/lib/utils'
 const props = defineProps<{
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  filterKey: string
+  disabled?: boolean
+  onDelete: (rows: Row<TData>[]) => void
 }>()
+
+const confirmModalRef = ref()
 
 const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
@@ -44,16 +50,36 @@ const table = useVueTable({
     get rowSelection() { return rowSelection.value },
   },
 })
+
+async function handleBulkDelete() {
+  const ok = await confirmModalRef.value?.confirm()
+
+  if (ok) {
+    props.onDelete(table.getFilteredSelectedRowModel().rows)
+    table.resetRowSelection()
+  }
+}
 </script>
 
 <template>
   <div>
+    <ConfirmModal ref="confirmModalRef" title="Are you sure?" message="You are about to perform a bulk delete." />
     <div class="flex items-center py-4">
       <Input
-        class="max-w-sm" placeholder="Filter emails..."
-        :model-value="table.getColumn('email')?.getFilterValue() as string"
-        @update:model-value=" table.getColumn('email')?.setFilterValue($event)"
+        class="max-w-sm" placeholder="Filter names..."
+        :model-value="table.getColumn('name')?.getFilterValue() as string"
+        @update:model-value=" table.getColumn('name')?.setFilterValue($event)"
       />
+      <Button
+        v-if="table.getFilteredSelectedRowModel().rows.length"
+        variant="outline"
+        class="ml-auto text-sm font-normal"
+        :disabled="disabled"
+        @click="handleBulkDelete"
+      >
+        <Trash class-name="mr-2 size-4" />
+        Delete {{ table.getFilteredSelectedRowModel().rows.length }} row(s)
+      </Button>
     </div>
     <div class="border rounded-md">
       <Table>

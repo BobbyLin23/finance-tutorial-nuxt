@@ -20,9 +20,9 @@ This is Nuxt.js version of `Finance Tutorial` repository.
 - [x] Accounts API with UI
   - [x] Get
   - [x] Post
-- [ ] Data Table
-- [ ] Accounts bulk Delete
-- [ ] Accounts Edit
+- [x] Data Table
+- [x] Accounts bulk Delete
+- [x] Accounts Edit
 - [ ] Categories API + UI
 - [ ] Transactions API
 

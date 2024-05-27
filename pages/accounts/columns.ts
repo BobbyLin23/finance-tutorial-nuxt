@@ -1,18 +1,13 @@
+import { h } from 'vue'
 import type { ColumnDef } from '@tanstack/vue-table'
 import { ArrowUpDown } from 'lucide-vue-next'
-import { h } from 'vue'
 
 import Button from '~/components/ui/button/Button.vue'
 import Checkbox from '~/components/ui/checkbox/Checkbox.vue'
+import Actions from '~/components/accounts/Actions.vue'
+import type { Account } from '~/types/accounts'
 
-export interface Payment {
-  id: string
-  amount: number
-  status: 'pending' | 'processing' | 'success' | 'failed'
-  email: string
-}
-
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Account>[] = [
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
@@ -29,21 +24,16 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'amount',
+    accessorKey: 'name',
     header: ({ column }) => {
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => ['Email', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => ['Name', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
     },
-    cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue('amount'))
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }).format(amount)
-
-      return h('div', { class: 'text-right font-medium' }, formatted)
-    },
+  },
+  {
+    id: 'actions',
+    cell: ({ row }) => h(Actions, { id: row.original.id }),
   },
 ]

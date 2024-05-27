@@ -8,7 +8,7 @@ export function useCreateAccount() {
     mutationFn: async (json) => {
       const response = await useFetch('/api/accounts', {
         method: 'post',
-        body: { json },
+        body: json,
       })
       return response.data
     },

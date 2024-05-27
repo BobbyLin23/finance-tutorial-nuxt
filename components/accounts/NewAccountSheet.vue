@@ -2,7 +2,7 @@
 const newAccountStore = useNewAccountStore()
 const mutation = useCreateAccount()
 
-async function onSubmit(values: Record<string, any>) {
+async function onSubmit(values: any) {
   mutation.mutate(values, {
     onSuccess: () => {
       newAccountStore.onClose()
@@ -28,7 +28,7 @@ function handleUpdate(value: boolean) {
         </SheetDescription>
       </SheetHeader>
       <AccountForm
-        :disabled="mutation.isPending"
+        :disabled="mutation.isPending.value"
         :default-value="{
           name: '',
         }"

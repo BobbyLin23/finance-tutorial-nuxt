@@ -20,7 +20,7 @@
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@paralleldrive/cuid2": "^2.2.2",
     "@pinia/nuxt": "^0.5.1",
-    "@tanstack/vue-query": "^5.36.1",
+    "@tanstack/vue-query": "5.38.0",
     "@tanstack/vue-table": "^8.17.3",
     "@vee-validate/zod": "^4.12.8",
     "class-variance-authority": "^0.7.0",
@@ -29,10 +29,10 @@
     "drizzle-zod": "^0.5.1",
     "h3": "^1.11.1",
     "h3-clerk": "^0.4.3",
-    "lucide-vue-next": "^0.378.0",
+    "lucide-vue-next": "0.379.0",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
-    "radix-vue": "^1.7.4",
+    "radix-vue": "1.8.2",
     "shadcn-nuxt": "latest",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
@@ -44,11 +44,11 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.18.0",
+    "@antfu/eslint-config": "2.18.1",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
-    "drizzle-kit": "^0.21.2",
-    "eslint": "^9.2.0",
+    "drizzle-kit": "0.21.4",
+    "eslint": "9.3.0",
     "typescript": "^5.4.5"
   }
 }
